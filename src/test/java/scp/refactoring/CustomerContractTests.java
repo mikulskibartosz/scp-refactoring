@@ -6,13 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CustomerContractTests {
     private final String CUSTOMER_NAME = "Johnny the Bug";
-    private final Rental childrenMovieRental = new Rental(new Movie("Harry Potter and NullPointerException", Movie.CHILDREN), 2);
-    private final Rental childrenMovieLongRental = new Rental(new Movie("The Lord of the StackTrace", Movie.CHILDREN), 4);
+    private final Rental childrenMovieRental = new Rental(Movie.childrenMovie("Harry Potter and NullPointerException"), 2);
+    private final Rental childrenMovieLongRental = new Rental(Movie.childrenMovie("The Lord of the StackTrace"), 4);
 
-    private final Rental newReleaseRental = new Rental(new Movie("The Silence of the Lambdas", Movie.NEW_RELEASE), 3);
+    private final Rental newReleaseRental = new Rental(Movie.newRelease("The Silence of the Lambdas"), 3);
 
-    private final Rental regularMovieRental = new Rental(new Movie("Once Upon a Time in the JVM", Movie.REGULAR), 1);
-    private final Rental regularMovieLongRental = new Rental(new Movie("The walking OutOfMemoryError", Movie.REGULAR), 3);
+    private final Rental regularMovieRental = new Rental(Movie.regularMovie("Once Upon a Time in the JVM"), 1);
+    private final Rental regularMovieLongRental = new Rental(Movie.regularMovie("The walking OutOfMemoryError"), 3);
 
     @Test
     public void returnStatementOfACustomerWithoutRentals() {

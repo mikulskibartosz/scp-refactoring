@@ -1,29 +1,30 @@
 package scp.refactoring;
 
-public class Movie {
+public abstract class Movie {
 
-    public static final int CHILDREN = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
-
-    private String title;
-    private int priceCode;
-
-    public Movie(String title, int priceCode) {
-        this.title = title;
-        this.priceCode = priceCode;
+    public static Movie childrenMovie(String title) {
+        return new ChildrenMovie(title);
     }
 
-    public String getTitle() {
+    public static Movie regularMovie(String title) {
+        return new RegularMovie(title);
+    }
+
+    public static Movie newRelease(String title) {
+        return new NewReleaseMovie(title);
+    }
+
+    private String title;
+
+    Movie(String title) {
+        this.title = title;
+    }
+
+    String getTitle() {
         return title;
     }
 
-    public int getPriceCode() {
-        return priceCode;
-    }
+    abstract double getChargeFor(int numberOfDays);
 
-    public void setPriceCode(int priceCode) {
-        this.priceCode = priceCode;
-    }
-
+    abstract int getFrequentRenterPoints();
 }
